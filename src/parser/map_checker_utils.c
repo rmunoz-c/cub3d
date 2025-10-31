@@ -46,3 +46,15 @@ int	check_map(t_game *game)
 		return (0);
 	return (1);
 }
+
+int	is_empty_line(const char *s)
+{
+	int	i;
+
+	if (!s)
+		return (1);
+	i = 0;
+	while (s[i] == ' ' || s[i] == '\t')
+		i++;
+	return (s[i] == '\0' || s[i] == '\n');
+}

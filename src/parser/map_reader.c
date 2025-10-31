@@ -25,15 +25,24 @@ static void	free_lines(char **a, int n)
 	free(a);
 }
 
-static int	is_blank_map(const char *s)
+static int	is_blank_map(char *s)
 {
+	int	len;
+
 	if (!s)
 		return (1);
-	if (s[0] == '\n')
-		return (1);
-	if (s[0] == '\0')
-		return (1);
-	return (0);
+	len = ft_strlen(s);
+	if (len > 0 && s[len - 1] == '\n')
+	{
+		s[len - 1] = '\0';
+		len--;
+	}
+	if (len > 0 && s[len - 1] == '\r')
+	{
+		s[len - 1] = '\0';
+		len--;
+	}
+	return (s[0] == '\0');
 }
 
 static int	append_line(char ***arr, int *cap, int *n, char *line)

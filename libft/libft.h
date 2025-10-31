@@ -102,5 +102,6 @@ int		ft_putchar(int c);
 int		ft_put_hex_ptr(size_t n, const char format, int is_ptr);
 int		ft_printf(char const *s, ...);
 int		ft_conver(va_list args, const char format);
+char	*ft_gnl_skip_empty(int fd);
 
 #endif
