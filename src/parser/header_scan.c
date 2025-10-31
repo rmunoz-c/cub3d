@@ -12,18 +12,6 @@
 
 #include "../../includes/cub3d.h"
 
-static int	is_empty_line(const char *s)
-{
-	int	i;
-
-	if (!s)
-		return (1);
-	i = 0;
-	while (s[i] == ' ' || s[i] == '\t')
-		i++;
-	return (s[i] == '\0' || s[i] == '\n');
-}
-
 static int	header_complete(const t_game *g)
 {
 	if (!g)
@@ -62,10 +50,51 @@ static int	parse_header_line(t_game *g, const char *line)
 	return (0);
 }
 
+static int	set_map_first_skip_empty(int fd, char **out)
+{
+	char	*l;
+
+	l = get_next_line(fd);
+	while (l && (l[0] == '\n' || l[0] == '\r'))
+	{
+		free(l);
+		l = get_next_line(fd);
+	}
+	if (!l)
+		return (0);
+	*out = l;
+	return (1);
+}
+
+static int	handle_non_header_line(int fd, t_game *g,
+									char *line, char **map_first)
+{
+	if (!header_complete(g))
+	{
+		if (!is_empty_line(line))
+		{
+			free(line);
+			return (err("Header incomplete before map"));
+		}
+		free(line);
+		return (0);
+	}
+	if (is_empty_line(line))
+	{
+		free(line);
+		if (!set_map_first_skip_empty(fd, map_first))
+			return (err("Missing map"));
+		return (1);
+	}
+	*map_first = line;
+	return (1);
+}
+
 int	scan_header(int fd, t_game *g, char **map_first)
 {
 	char	*line;
 	int		r;
+	int		h;
 
 	*map_first = NULL;
 	while ((line = get_next_line(fd)))
@@ -73,15 +102,17 @@ int	scan_header(int fd, t_game *g, char **map_first)
 		r = parse_header_line(g, line);
 		if (r == 2)
 		{
-			*map_first = get_next_line(fd);
-			return (free(line), 1);
-		}
-		if (r != 1 && !is_empty_line(line))
-		{
-			if (!header_complete(g))
-				return (free(line), err("Header incomplete before map"));
-			*map_first = line;
+			free(line);
+			if (!set_map_first_skip_empty(fd, map_first))
+				return (err("Missing map"));
 			return (1);
+		}
+		if (r != 1)
+		{
+			h = handle_non_header_line(fd, g, line, map_first);
+			if (h == 0)
+				continue ;
+			return (h > 0);
 		}
 		free(line);
 	}

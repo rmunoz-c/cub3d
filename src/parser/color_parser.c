@@ -44,7 +44,7 @@ static int	expect_comma(const char **p)
 	return (0);
 }
 
-int	parse_rgb(int *r, int *g, int *b, char *line)
+int	parse_rgb(int *r, int *g, int *b, const char *line)
 {
 	const char	*ptr;
 
@@ -66,7 +66,7 @@ int	parse_rgb(int *r, int *g, int *b, char *line)
 	return (0);
 }
 
-int	parse_floor_color(t_game *game, char *line)
+int	parse_floor_color(t_game *game, const char *line)
 {
 	int	r;
 	int	g;
@@ -84,7 +84,7 @@ int	parse_floor_color(t_game *game, char *line)
 	return (1);
 }
 
-int	parse_ceiling_color(t_game *game, char *line)
+int	parse_ceiling_color(t_game *game, const char *line)
 {
 	int	r;
 	int	g;

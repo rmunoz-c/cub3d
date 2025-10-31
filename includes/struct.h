@@ -19,6 +19,13 @@ typedef struct s_map {
     int		h;
 } t_map;
 
+typedef struct s_texture {
+    void	*img_ptr;
+    int		width;
+    int		height;
+    char	*data;
+} t_texture;
+
 typedef struct s_game {
     char		*no_texture;
     char		*so_texture;
@@ -39,11 +46,5 @@ typedef struct s_game {
     char	player_dir;
 } t_game;
 
-typedef struct s_texture {
-    void	*img_ptr;
-    int		width;
-    int		height;
-    char	*data;
-} t_texture;
 
 #endif
