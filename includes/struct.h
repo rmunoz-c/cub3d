@@ -24,7 +24,32 @@ typedef struct s_texture {
     int		width;
     int		height;
     char	*data;
+    int		line_len;
+	int		bpp;
+	int		endian;
 } t_texture;
+
+typedef struct s_vec2d {
+    double x;
+    double y;
+} t_vec2d;
+
+typedef struct s_img {
+    void *ptr;
+    int  *data;
+    int   w;
+    int   h;
+    int   line_len;
+    int   bpp;
+    int   endian;
+} t_img;
+
+typedef struct s_player {
+    t_vec2d pos;
+    t_vec2d dir;
+    t_vec2d plane;
+} t_player;
+
 
 typedef struct s_game {
     char		*no_texture;
@@ -44,7 +69,16 @@ typedef struct s_game {
     int		player_x;
     int		player_y;
     char	player_dir;
+
+    void		*mlx;
+	void		*win;
+	t_img		screen;
+	t_player	player;
 } t_game;
+
+#define HEIGHT 800
+#define WIDTH 600
+#define KEY_ESC 65307
 
 
 #endif

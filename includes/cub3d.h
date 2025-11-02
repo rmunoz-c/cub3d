@@ -64,4 +64,14 @@ int		set_texture(t_game *game, char *prefix, char *path);
 int		parse_texture(t_game *game, char *line);
 int		can_open_readonly(const char *p);
 
+/*_________________________________ mlx_utils.c _____________________________*/
+
+int  img_create(void *mlx, t_img *img, int w, int h);
+void img_destroy(void *mlx, t_img *img);
+void cub_cleanup(t_game *g);
+
+/*_________________________________ loop.c __________________________________*/
+int	loop_hook(void *param);
+
+
 #endif
