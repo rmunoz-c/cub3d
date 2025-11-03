@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   debug_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 13:00:03 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/03 19:04:18 by enogueir         ###   ########.fr       */
+/*   Created: 2025/11/03 13:30:14 by enogueir          #+#    #+#             */
+/*   Updated: 2025/11/03 18:53:26 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* src/debug_player.c */
 #include "../../includes/cub3d.h"
+#include <stdio.h> /* solo debug temporal */
 
-int	init_mlx(t_game *g)
+void	debug_player(const t_game *g)
 {
-	g->mlx = mlx_init();
-	if (g->mlx == NULL)
-		return (-1);
-	g->win = mlx_new_window(g->mlx, WIDTH, HEIGHT, "Cub 3D");
-	if (g->win == NULL)
-		return (-1);
-	g->screen.ptr = NULL;
-	return (0);
+	printf("player.pos = (%.2f, %.2f)\n", g->player.pos.x, g->player.pos.y);
+	printf("player.dir = (%.2f, %.2f)\n", g->player.dir.x, g->player.dir.y);
+	printf("player.plane = (%.2f, %.2f)\n", g->player.plane.x,
+		g->player.plane.y);
+	printf("spawn parser = (%d,%d) dir %c\n", g->player_x, g->player_y,
+		g->player_dir);
 }

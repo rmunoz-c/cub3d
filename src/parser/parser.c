@@ -3,49 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmunoz-c <rmunoz-c@student.42.fr>          #+#  +:+       +#+        */
+/*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-29 19:26:45 by rmunoz-c          #+#    #+#             */
-/*   Updated: 2025-10-29 19:26:45 by rmunoz-c         ###   ########.fr       */
+/*   Created: 2025/10/29 19:26:45 by rmunoz-c          #+#    #+#             */
+/*   Updated: 2025/11/03 18:59:21 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-
-static int open_scene_fd(const char *path)
+static int	open_scene_fd(const char *path)
 {
 	int	fd;
-	
+
 	if (!path)
-	return (-1);
+		return (-1);
 	fd = open(path, O_RDONLY);
 	return (fd);
 }
 
-static int parse_header_stage(int fd, t_game *g, char **map_first)
+static int	parse_header_stage(int fd, t_game *g, char **map_first)
 {
 	if (!scan_header(fd, g, map_first))
-	return (0);
+		return (0);
 	return (1);
 }
 
-static int parse_map_stage(int fd, char *map_first, t_game *g)
+static int	parse_map_stage(int fd, char *map_first, t_game *g)
 {
 	char	**lines;
 	int		n;
-	
+
 	if (!read_map_lines(fd, map_first, &lines, &n))
-	return (0);
+		return (0);
 	if (!build_map_rect(&g->map, lines, n))
 	{
 		while (n-- > 0)
-		free(lines[n]);
+			free(lines[n]);
 		free(lines);
 		return (0);
 	}
 	while (n-- > 0)
-	free(lines[n]);
+		free(lines[n]);
 	free(lines);
 	if (!check_map(g))
 		return (err("Invalid map"));
@@ -60,7 +59,7 @@ int	err(const char *msg)
 	return (0);
 }
 
-int parse_scene(t_game *g, const char *path)
+int	parse_scene(t_game *g, const char *path)
 {
 	int		fd;
 	char	*map_first;
@@ -82,7 +81,8 @@ int parse_scene(t_game *g, const char *path)
 		close(fd);
 		return (err("Invalid map block"));
 	}
+	if (!extract_player_spawn(&g->map, g))
+		return (0);
 	close(fd);
 	return (1);
 }
-

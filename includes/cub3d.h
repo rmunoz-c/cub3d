@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmunoz-c <rmunoz-c@student.42.fr>          #+#  +:+       +#+        */
+/*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-10-29 15:57:16 by rmunoz-c          #+#    #+#             */
-/*   Updated: 2025-10-29 15:57:16 by rmunoz-c         ###   ########.fr       */
+/*   Created: 2025/10/29 15:57:16 by rmunoz-c          #+#    #+#             */
+/*   Updated: 2025/11/03 19:53:26 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <string.h>
-# include <math.h>
-# include <sys/time.h>
+# include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
-# include "libft.h"
-
-#include "struct.h"
+# include "struct.h"
+# include <fcntl.h>
+# include <math.h>
+# include <stdlib.h>
+# include <string.h>
+# include <sys/time.h>
+# include <unistd.h>
 
 /*_________________________________ color_parser.c __________________________*/
 
@@ -64,14 +63,38 @@ int		set_texture(t_game *game, char *prefix, char *path);
 int		parse_texture(t_game *game, char *line);
 int		can_open_readonly(const char *p);
 
+/*_________________________________ init_mlx.c ______________________________*/
+int		init_mlx(t_game *g);
+
+/*_________________________________ init_player.c ___________________________*/
+int		init_player(t_game *g);
+
 /*_________________________________ mlx_utils.c _____________________________*/
 
-int  img_create(void *mlx, t_img *img, int w, int h);
-void img_destroy(void *mlx, t_img *img);
-void cub_cleanup(t_game *g);
+int		img_create(void *mlx, t_img *img, int w, int h);
+void	img_destroy(void *mlx, t_img *img);
+void	cub_cleanup(t_game *g);
+
+/*_________________________________ events.c ________________________________*/
+void	set_hooks(t_game *g);
 
 /*_________________________________ loop.c __________________________________*/
-int	loop_hook(void *param);
+int		loop_hook(void *param);
 
+/*_________________________________ events.c ________________________________*/
+void	set_hooks(t_game *g);
+int		key_press(int keycode, void *param);
+
+/*_________________________________ utils.c _________________________________*/
+int		exit_program(void *param);
+
+/*_________________________________ player_spawn.c __________________________*/
+int		extract_player_spawn(t_map *m, t_game *g);
+
+/*_________________________________ debug_player.c __________________________*/
+# ifdef DEBUG
+
+void	debug_player(const t_game *g);
+# endif
 
 #endif

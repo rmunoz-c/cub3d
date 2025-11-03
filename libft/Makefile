@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rmunoz-c <rmunoz-c@student.42madrid>       +#+  +:+       +#+         #
+#    By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/17 20:32:53 by rmunoz-c          #+#    #+#              #
-#    Updated: 2024/10/31 15:48:47 by rmunoz-c         ###   ########.fr        #
+#    Updated: 2025/11/03 16:05:52 by enogueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRC	=		ft_bzero.c \
 			ft_error.c \
 			ft_arraylen.c \
 			ft_atoll.c \
+			ft_atoi_skip.c \
 			ft_free_array.c \
 			ft_strcmp.c \
 			ft_quicksort.c \
