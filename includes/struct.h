@@ -90,8 +90,41 @@ typedef struct s_spawn_entry
 	double		py;
 }				t_spawn_entry;
 
+typedef struct s_ray
+{
+    t_vec2d	dir;
+    t_vec2d	delta;
+    t_vec2d	side;
+    int		step_x;
+    int		step_y;
+    int		map_x;
+    int		map_y;
+    int		side_hit;
+    double	dist;
+    int		tex_id;
+    int		tex_x;
+}				t_ray;
+
+typedef struct s_slice
+{
+    int		x;
+    int		start;
+    int		end;
+    double	tex_pos;
+    double	step;
+}				t_slice;
+
 # define HEIGHT 600
 # define WIDTH 800
 # define KEY_ESC 65307
+# define WIN_W WIDTH
+# define WIN_H HEIGHT
+# define TEX_SIZE 64
+# define DIR_NORTH 0
+# define DIR_SOUTH 1
+# define DIR_WEST  2
+# define DIR_EAST  3
+# define EPS 1e-6
+
 
 #endif
