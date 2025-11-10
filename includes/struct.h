@@ -79,6 +79,7 @@ typedef struct s_game
 	void		*win;
 	t_img		screen;
 	t_player	player;
+	t_keys		keys;
 }				t_game;
 
 typedef struct s_spawn_entry
@@ -114,9 +115,37 @@ typedef struct s_slice
     double	step;
 }				t_slice;
 
+typedef struct s_keys
+{
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	left;
+	int	right;
+}				t_keys;
+
 # define HEIGHT 600
 # define WIDTH 800
-# define KEY_ESC 65307
+
+# ifdef __APPLE__
+#  define KEY_W 13
+#  define KEY_A 0
+#  define KEY_S 1
+#  define KEY_D 2
+#  define KEY_ESC 53
+#  define KEY_LEFT 123
+#  define KEY_RIGHT 124
+# else
+#  define KEY_W 119
+#  define KEY_A 97
+#  define KEY_S 115
+#  define KEY_D 100
+#  define KEY_ESC 65307
+#  define KEY_LEFT 65361
+#  define KEY_RIGHT 65363
+# endif
+
 # define WIN_W WIDTH
 # define WIN_H HEIGHT
 # define TEX_SIZE 64
@@ -126,5 +155,16 @@ typedef struct s_slice
 # define DIR_EAST  3
 # define EPS 1e-6
 
+# ifndef COLLISION_RADIUS
+#  define COLLISION_RADIUS 0.20
+# endif
+
+# ifndef MAX_MOVE_STEP
+#  define MAX_MOVE_STEP 0.25
+# endif
+
+# ifndef MIN_MOVE_DISTANCE
+#  define MIN_MOVE_DISTANCE 1e-6
+# endif
 
 #endif
