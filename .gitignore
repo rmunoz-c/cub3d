@@ -59,3 +59,4 @@ tester.c
 parser_tester
 parser_extra_suite
 .vscode
+cub3D
