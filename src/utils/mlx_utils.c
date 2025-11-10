@@ -26,17 +26,12 @@ int	img_create(void *mlx, t_img *img, int w, int h)
 	return (0);
 }
 
-void	img_destroy(void *mlx, t_img *img)
-{
-	if (img->ptr != NULL)
-		mlx_destroy_image(mlx, img->ptr);
-	img->ptr = NULL;
-}
-
 void	cub_cleanup(t_game *g)
 {
+	if(!g)
+		return ;
 	if (g->screen.ptr != NULL)
-		img_destroy(g->mlx, &g->screen);
+		mlx_destroy_image(g->mlx, g->screen.ptr);
 	if (g->win != NULL)
 		mlx_destroy_window(g->mlx, g->win);
 	if (g->mlx != NULL)
