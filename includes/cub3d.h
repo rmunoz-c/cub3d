@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:57:16 by rmunoz-c          #+#    #+#             */
-/*   Updated: 2025/11/03 19:53:26 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:54:45 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ int		init_mlx(t_game *g);
 /*_________________________________ init_player.c ___________________________*/
 int		init_player(t_game *g);
 
+/*_________________________________ init_game.c _____________________________*/
+void	init_game(t_game *g);
+
 /*_________________________________ mlx_utils.c _____________________________*/
 
 int		img_create(void *mlx, t_img *img, int w, int h);
@@ -77,16 +80,12 @@ void	cub_cleanup(t_game *g);
 
 /*_________________________________ events.c ________________________________*/
 void	set_hooks(t_game *g);
+int     key_release(int keycode, void *param);
+int		key_press(int keycode, void *param);
+int		exit_program(void *param);
 
 /*_________________________________ loop.c __________________________________*/
 int		loop_hook(void *param);
-
-/*_________________________________ events.c ________________________________*/
-void	set_hooks(t_game *g);
-int		key_press(int keycode, void *param);
-
-/*_________________________________ utils.c _________________________________*/
-int		exit_program(void *param);
 
 /*_________________________________ player_spawn.c __________________________*/
 int		extract_player_spawn(t_map *m, t_game *g);

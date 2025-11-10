@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 16:37:09 by rmunoz-c          #+#    #+#             */
-/*   Updated: 2025/11/03 19:24:46 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:51:54 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ typedef struct s_player
 	t_vec2d		dir;
 	t_vec2d		plane;
 }				t_player;
+
+typedef struct s_keys
+{
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	left;
+	int	right;
+}				t_keys;
 
 typedef struct s_game
 {
@@ -115,15 +125,6 @@ typedef struct s_slice
     double	step;
 }				t_slice;
 
-typedef struct s_keys
-{
-	int	w;
-	int	a;
-	int	s;
-	int	d;
-	int	left;
-	int	right;
-}				t_keys;
 
 # define HEIGHT 600
 # define WIDTH 800

@@ -6,9 +6,11 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 13:01:52 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/03 18:44:51 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:48:50 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/cub3d.h"
 
 #include "../includes/cub3d.h"
 
@@ -18,9 +20,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (err("Usage: ./cub3D <map.cub>"));
-	g.mlx = NULL;
-	g.win = NULL;
-	g.screen.ptr = NULL;
+	init_game(&g);
 	if (!parse_scene(&g, argv[1]))
 		return (err("Parse failed"));
 	if (init_mlx(&g) == -1)

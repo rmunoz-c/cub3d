@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 18:49:23 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/03 18:50:23 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:53:17 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,4 @@ void	cub_cleanup(t_game *g)
 		mlx_destroy_display(g->mlx);
 		free(g->mlx);
 	}
-}
-
-int	exit_program(void *param)
-{
-	t_game	*g;
-
-	g = (t_game *)param;
-	cub_cleanup(g);
-	exit(0);
-	return (0);
 }

@@ -27,6 +27,7 @@ SRC := \
   src/loop.c \
   src/events/events.c \
   src/utils/mlx_utils.c \
+  src/init/init_game.c \
   src/init/init_mlx.c \
   src/init/init_player.c \
   src/parser/parser.c \
