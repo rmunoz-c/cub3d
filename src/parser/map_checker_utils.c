@@ -54,7 +54,7 @@ int	is_empty_line(const char *s)
 	if (!s)
 		return (1);
 	i = 0;
-	while (s[i] == ' ' || s[i] == '\t')
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\r')
 		i++;
 	return (s[i] == '\0' || s[i] == '\n');
 }

@@ -59,7 +59,7 @@ int		parse_scene(t_game *g, const char *path);
 
 /*_________________________________ texture_checker.c _______________________*/
 
-int		set_texture(t_game *game, char *prefix, char *path);
+int		set_texture(t_game *game, const char *line, char *path);
 int		parse_texture(t_game *game, char *line);
 int		can_open_readonly(const char *p);
 

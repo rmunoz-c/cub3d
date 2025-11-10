@@ -74,7 +74,7 @@ static int	handle_non_header_line(int fd, t_game *g,
 		if (!is_empty_line(line))
 		{
 			free(line);
-			return (err("Header incomplete before map"));
+			return (0);
 		}
 		free(line);
 		return (0);
