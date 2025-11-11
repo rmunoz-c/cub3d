@@ -105,7 +105,7 @@ void	raycaster(t_game *game)
 		ray_init(game, &ray, x);
 		dda(game, &ray);
 		set_tex_info(game, &ray);
-		draw_walls(game, x, &ray);
+		render_walls(game, x, &ray);
 		x++;
 	}
 }
