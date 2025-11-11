@@ -63,6 +63,7 @@ void	subdiv_move(t_game *g, double total_dx, double total_dy);
 /*_________________________________ movement_utils.c ________________________*/
 
 void	try_smooth_move(t_game *g, double dx, double dy);
+int		check_collision_corners(t_game *g, double x, double y, double r);
 
 
 /*_________________________________ movement.c ______________________________*/
