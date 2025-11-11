@@ -126,9 +126,18 @@ typedef struct s_slice
 }				t_slice;
 
 
-# define HEIGHT 600
-# define WIDTH 800
+/*_________________________________ window size _____________________________*/
+# define HEIGHT 720
+# define WIDTH 1280
 
+/*_________________________________ raycasting ______________________________*/
+# define MOVE_SPEED 0.05
+# define ROT_SPEED 0.05
+# define EPS 1e-6
+
+# define TEX_SIZE 64
+
+/*_________________________________ keyhook _____________________________*/
 # ifdef __APPLE__
 #  define KEY_W 13
 #  define KEY_A 0

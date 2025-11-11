@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/struct.h"
+#include "../../includes/cub3d.h"
 
 int	dda_step(t_game *game, t_ray *ray)
 {
