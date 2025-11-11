@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 14:54:47 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/11 19:17:32 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/11 20:43:35 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ static int	load_texture(void *mlx, t_texture *tex, const char *path)
 			&tex->width, &tex->height);
 	if (!tex->img_ptr)
 		return (err("Failed to load texture"));
+	if (tex->width > TEX_SIZE || tex->height > TEX_SIZE)
+	{
+		mlx_destroy_image(mlx, tex->img_ptr);
+		tex->img_ptr = NULL;
+		return (err("Texture too large"));
+	}
 	tex->data = mlx_get_data_addr(tex->img_ptr, &tex->bpp,
 			&tex->line_len, &tex->endian);
 	if (!tex->data)

@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 13:00:12 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/11 18:48:28 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/11 20:07:48 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	set_plane_dir_ns(t_player *p, char spawn)
 	else
 	{
 		p->dir.x = 0.0;
-		p->dir.y = -1.0;
+		p->dir.y = 1.0;
 		p->plane.x = -0.66;
 		p->plane.y = 0.0;
 	}
