@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/struct.h"
+#include "../../includes/cub3d.h"
 
 static void	put_pixel(t_img *img, int x, int y, int color)
 {

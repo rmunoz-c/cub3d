@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/struct.h"
+#include "../../includes/cub3d.h"
 
 int	tex_sample(t_game *game, int id, int x, int y)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/struct.h"
+#include "../../includes/cub3d.h"
 
 static void	set_step_side(t_game *game, t_ray *ray)
 {
@@ -83,10 +83,6 @@ static void	set_tex_info(t_game *game, t_ray *ray)
 	else
 		ray->tex_id = DIR_SOUTH;
 }
-
-extern int	dda_step(t_game *game, t_ray *ray);
-extern void	dda_distance(t_game *game, t_ray *ray);
-extern void	draw_walls(t_game *game, int x, t_ray *ray);
 
 static void	dda(t_game *game, t_ray *ray)
 {
