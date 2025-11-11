@@ -25,11 +25,17 @@ endif
 SRC := \
   src/main.c \
   src/loop.c \
+  src/debug/debug_player.c \
   src/events/events.c \
-  src/utils/mlx_utils.c \
   src/init/init_game.c \
   src/init/init_mlx.c \
   src/init/init_player.c \
+  src/init/init_textures.c \
+  src/movement/movement_collision.c \
+  src/movement/movement_sliding.c \
+  src/movement/movement_subdiv.c \
+  src/movement/movement_utils.c \
+  src/movement/movement.c \
   src/parser/parser.c \
   src/parser/header_scan.c \
   src/parser/map_reader.c \
@@ -39,6 +45,13 @@ SRC := \
   src/parser/color_parser.c \
   src/parser/player_spawn.c \
   src/parser/texture_checker.c \
+  src/rendering/raycaster_utils.c \
+  src/rendering/raycaster.c \
+  src/rendering/render_floor_ceiling.c \
+  src/rendering/render_textures.c \
+  src/rendering/render_walls.c \
+  src/utils/mlx_utils.c \
+
   $(SRC_DEBUG)
 
 OBJ := $(SRC:%.c=$(BUILD)/%.o)

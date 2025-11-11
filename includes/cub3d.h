@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:57:16 by rmunoz-c          #+#    #+#             */
-/*   Updated: 2025/11/10 18:54:45 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/11 18:07:23 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ int		exit_program(void *param);
 
 
 /*INIT*/
+/*_________________________________ init_game.c _____________________________*/
+
+void	init_game(t_game *g);
+
 /*_________________________________ init_mlx.c ______________________________*/
 
 int		init_mlx(t_game *g);
@@ -40,10 +44,9 @@ int		init_mlx(t_game *g);
 
 int		init_player(t_game *g);
 
-/*_________________________________ init_game.c _____________________________*/
+/*_________________________________ init_textures.c _________________________*/
 
-void	init_game(t_game *g);
-
+int     init_textures(t_game *g);
 
 /*MOVEMENT*/
 /*_________________________________ movement_collision.c ____________________*/
