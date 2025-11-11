@@ -25,6 +25,7 @@ endif
 SRC := \
   src/main.c \
   src/loop.c \
+  src/core/run.c \
   src/debug/debug_player.c \
   src/events/events.c \
   src/init/init_game.c \

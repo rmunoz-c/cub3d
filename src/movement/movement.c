@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmunoz-c <rmunoz-c@student.42.fr>          #+#  +:+       +#+        */
+/*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-11-11 16:06:54 by rmunoz-c          #+#    #+#             */
-/*   Updated: 2025-11-11 16:06:54 by rmunoz-c         ###   ########.fr       */
+/*   Created: 2025/11/11 16:06:54 by rmunoz-c          #+#    #+#             */
+/*   Updated: 2025/11/11 18:53:20 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static void	calculate_movement_wasd(t_game *g, double *dx, double *dy)
 		*dx -= g->player.dir.x * MOVE_SPEED;
 		*dy -= g->player.dir.y * MOVE_SPEED;
 	}
-	if (g->keys.a)
+	if (g->keys.d)
 	{
 		*dx += g->player.dir.y * MOVE_SPEED;
 		*dy -= g->player.dir.x * MOVE_SPEED;
 	}
-	if (g->keys.d)
+	if (g->keys.a)
 	{
 		*dx -= g->player.dir.y * MOVE_SPEED;
 		*dy += g->player.dir.x * MOVE_SPEED;

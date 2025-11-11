@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 14:54:47 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/11 17:33:53 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:17:32 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ static int	load_texture(void *mlx, t_texture *tex, const char *path)
 {
 	if (!path || !*path)
 		return (err("Missing texture path"));
-	tex->img_ptr = mlx_xpm_file_to_image(mlx,
-			(char *)path, &tex->width, &tex->height);
+	if (!can_open_readonly(path))
+		return (err("Cannot open texture file"));
+	tex->img_ptr = mlx_xpm_file_to_image(mlx, (char *)path,
+			&tex->width, &tex->height);
 	if (!tex->img_ptr)
 		return (err("Failed to load texture"));
-	tex->data = mlx_get_data_addr(tex->img_ptr,
-			&tex->bpp, &tex->line_len, &tex->endian);
+	tex->data = mlx_get_data_addr(tex->img_ptr, &tex->bpp,
+			&tex->line_len, &tex->endian);
 	if (!tex->data)
 	{
 		mlx_destroy_image(mlx, tex->img_ptr);

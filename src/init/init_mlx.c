@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 13:00:03 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/10 16:35:50 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:33:11 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	init_mlx(t_game *g)
 		return (err("mlx_get_data_addr failed"));
 	g->screen.w = WIDTH;
 	g->screen.h = HEIGHT;
-	return (0);
+	return (1);
 }

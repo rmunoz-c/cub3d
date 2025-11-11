@@ -6,7 +6,7 @@
 /*   By: enogueir <enogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 13:00:43 by enogueir          #+#    #+#             */
-/*   Updated: 2025/11/11 18:17:40 by enogueir         ###   ########.fr       */
+/*   Updated: 2025/11/11 19:29:43 by enogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int	loop_hook(void *param)
 		return (0);
 	handle_move(g);
 	handle_rotate(g);
+	render_floor_ceiling(g);
 	raycaster(g);
 	mlx_put_image_to_window(g->mlx, g->win, g->screen.ptr, 0, 0);
 	return (0);
