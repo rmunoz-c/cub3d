@@ -32,7 +32,7 @@ int	key_press(int keycode, void *param)
 	else if (keycode == KEY_A)
 		g->keys.a = 1;
 	else if (keycode == KEY_S)
-		g->keys.s= 1;
+		g->keys.s = 1;
 	else if (keycode == KEY_D)
 		g->keys.d = 1;
 	else if (keycode == KEY_RIGHT)

@@ -74,6 +74,7 @@ SRC	=		ft_bzero.c \
 			get_next_line_bonus.c \
 			ft_printf.c \
 			ft_printf_utils.c \
+			ft_gnl_skip_empty.c \
 
 OBJ= $(SRC:.c=.o) 
 

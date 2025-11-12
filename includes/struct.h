@@ -103,28 +103,27 @@ typedef struct s_spawn_entry
 
 typedef struct s_ray
 {
-    t_vec2d	dir;
-    t_vec2d	delta;
-    t_vec2d	side;
-    int		step_x;
-    int		step_y;
-    int		map_x;
-    int		map_y;
-    int		side_hit;
-    double	dist;
-    int		tex_id;
-    int		tex_x;
+	t_vec2d	dir;
+	t_vec2d	delta;
+	t_vec2d	side;
+	int		step_x;
+	int		step_y;
+	int		map_x;
+	int		map_y;
+	int		side_hit;
+	double	dist;
+	int		tex_id;
+	int		tex_x;
 }				t_ray;
 
 typedef struct s_slice
 {
-    int		x;
-    int		start;
-    int		end;
-    double	tex_pos;
-    double	step;
+	int		x;
+	int		start;
+	int		end;
+	double	tex_pos;
+	double	step;
 }				t_slice;
-
 
 /*_________________________________ window size _____________________________*/
 # define HEIGHT 720
@@ -148,9 +147,9 @@ typedef struct s_slice
 #  define KEY_RIGHT 124
 # else
 #  define KEY_W 119
-#  define KEY_A 97
+#  define KEY_A 100
 #  define KEY_S 115
-#  define KEY_D 100
+#  define KEY_D 97
 #  define KEY_ESC 65307
 #  define KEY_LEFT 65361
 #  define KEY_RIGHT 65363

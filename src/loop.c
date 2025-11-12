@@ -45,7 +45,7 @@ static void	handle_move(t_game *g)
 	double	dx;
 	double	dy;
 
-	speed = 0.05;
+	speed = MOVE_SPEED;
 	dx = 0.0;
 	dy = 0.0;
 	if (g->keys.w)
@@ -79,7 +79,7 @@ static void	handle_rotate(t_game *g)
 
 	if (!g->keys.left && !g->keys.right)
 		return ;
-	rot = 0.03;
+	rot = ROT_SPEED;
 	if (g->keys.left)
 		rot = -rot;
 	old_dir_x = g->player.dir.x;

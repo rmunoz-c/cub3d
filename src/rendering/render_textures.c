@@ -14,16 +14,19 @@
 
 int	tex_sample(t_game *game, int id, int x, int y)
 {
-	if (id < 0 || id >= 4)
-		return (0);
-	if (x < 0 || x >= TEX_SIZE || y < 0 || y >= TEX_SIZE)
-		return (0);
+	t_texture	*tex;
+	int			color;
+
 	if (id == DIR_NORTH)
-		return (game->no.data[y * TEX_SIZE + x]);
+		tex = &game->no;
 	else if (id == DIR_SOUTH)
-		return (game->so.data[y * TEX_SIZE + x]);
+		tex = &game->so;
 	else if (id == DIR_WEST)
-		return (game->we.data[y * TEX_SIZE + x]);
+		tex = &game->we;
 	else
-		return (game->ea.data[y * TEX_SIZE + x]);
+		tex = &game->ea;
+	if (x < 0 || x >= tex->width || y < 0 || y >= tex->height)
+		return (0);
+	color = *(int *)(tex->data + (y * tex->line_len + x * (tex->bpp / 8)));
+	return (color);
 }
